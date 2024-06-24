@@ -12,6 +12,9 @@ import userRouter from "./user/user.routes.js";
 import wishListRouter from "./wishList/wishList.routes.js";
 
 export function init(app) {
+  app.use("/", (req, res, next) => {
+    res.send("hello world");
+  });
   app.use("/api/v1/category", categoreRouter);
   app.use("/api/v1/susbcategory", subCategoreRouter);
   app.use("/api/v1/brands", brandRouter);

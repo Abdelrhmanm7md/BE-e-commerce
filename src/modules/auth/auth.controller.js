@@ -40,19 +40,17 @@ export const protectRoutes = catchAsync(async (req, res, next) => {
   let decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
   let user = await userModel.findById(decoded.userId);
   if (!user) {
-
     return next(new AppError(`user Invalid`, 401));
   }
   if (user.changePasswordAt) {
-  let changePasswordTime = parseInt(user.changePasswordAt.getTime() / 1000);
-  if (changePasswordTime > decoded.iat) {
-
-    return next(new AppError(`token Invalid`, 401));
-  }}
-  req.user = user
+    let changePasswordTime = parseInt(user.changePasswordAt.getTime() / 1000);
+    if (changePasswordTime > decoded.iat) {
+      return next(new AppError(`token Invalid`, 401));
+    }
+  }
+  req.user = user;
   next();
 });
-
 
 export const allowTo = (...roles) => {
   return (req, res, next) => {
@@ -61,4 +59,4 @@ export const allowTo = (...roles) => {
     }
     next();
   };
-}
+};
