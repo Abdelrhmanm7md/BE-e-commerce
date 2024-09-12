@@ -28,21 +28,25 @@ const io = new Server(server, {
   cors: "*",
 });
 
-io.on("connection", (socket) => {
-  console.log(`User Connected: ${socket.id}`);
-  socket.on("disconnect", () => {
-    console.log("User Disconnected", socket.id);
-  });
-  socket.on("newMessage", (data) => {
-    console.log(data);
-    socket.broadcast.emit("replay", data);
-  });
-  socket.on("userTyping", (data) => {
-    console.log("Typing");
-    socket.broadcast.emit("Typing", "Typing");
-  });
-  socket.on("stopTyping", (data) => {
-    console.log("stopTyping");
-    socket.broadcast.emit("stopUserTyping", "Typing");
-  });
-});
+// io.on("connection", (socket) => {
+//   console.log(`User Connected: ${socket.id}`);
+//   socket.on("disconnect", () => {
+//     console.log("User Disconnected", socket.id);
+//   });
+//   socket.on("newMessage", (data) => {
+//     console.log(data);
+//     socket.broadcast.emit("replay", data);
+//   });
+//   socket.on("userTyping", (data) => {
+//     console.log("Typing");
+//     socket.broadcast.emit("Typing", "Typing");
+//   });
+//   socket.on("stopTyping", (data) => {
+//     console.log("stopTyping");
+//     socket.broadcast.emit("stopUserTyping", "Typing");
+//   });
+  // socket.on("load", async() => {
+  //   let allData = await noteModel.find()
+  //   socket.emit("allData", allData);
+  // });
+// });

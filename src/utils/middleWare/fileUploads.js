@@ -12,11 +12,11 @@ let options = (folderName) => {
     },
   });
   function fileFilter(req, file, cb) {
-    if (file.mimetype.startsWith("image")) {
+    // if (file.mimetype.startsWith("image")) {
       cb(null, true);
-    } else {
-      cb(new AppError("invalid image", 400), false);
-    }
+    // } else {
+    //   cb(new AppError("invalid image", 400), false);
+    // }
   }
 
   return multer({ storage, fileFilter });

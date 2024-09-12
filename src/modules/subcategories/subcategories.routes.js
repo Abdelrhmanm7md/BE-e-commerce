@@ -1,12 +1,12 @@
 import express from "express";
 import {
-    addsubCategories,
-    getAllsubCategories,
-    getOnesubCategories,
-    updatedsubCategories,
-    deletesubCategories,
+  addsubCategories,
+  getAllsubCategories,
+  getOnesubCategories,
+  updatedsubCategories,
+  deletesubCategories,
 } from "./subcategories.controller.js";
-const subCategoreRouter = express.Router({mergeParams: true});
+const subCategoreRouter = express.Router({ mergeParams: true });
 
 subCategoreRouter.get("/", getAllsubCategories);
 subCategoreRouter.post("/", addsubCategories);

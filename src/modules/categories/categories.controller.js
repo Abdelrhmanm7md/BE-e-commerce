@@ -7,6 +7,8 @@ import ApiFeature from "../../utils/apiFeature.js";
 
 const addCategories = catchAsync(async (req, res, next) => {
   req.body.slug = slugify(req.body.name);
+  console.log(req.file);
+  
   req.body.image = req.file.filename;
   let results = new categoryModel(req.body);
   let added = await results.save();

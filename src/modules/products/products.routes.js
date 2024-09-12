@@ -14,10 +14,11 @@ productRouter.get("/", getAllProduct);
 productRouter.get("/:id", getOneProduct);
 productRouter.post(
   "/",
-  protectRoutes,allowTo("admin","user"),
+  // protectRoutes,
+  // allowTo("admin", "user"),
   uploadMixFile("product", [
     { name: "imgCover", maxCount: 1 },
-    { name: "imgCovers", maxCount: 8 },
+    { name: "images", maxCount: 8 },
   ]),
   addProduct
 );

@@ -1,8 +1,8 @@
-import { userModel } from "../../../databases/models/User.model.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import catchAsync from "../../utils/middleWare/catchAsyncError.js";
 import AppError from "../../utils/appError.js";
+import { userModel } from "../../../databases/models/User.model.js";
 
 export const signUp = catchAsync(async (req, res, next) => {
   let existUser = await userModel.findOne({ email: req.body.email });

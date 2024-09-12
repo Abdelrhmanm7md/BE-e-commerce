@@ -12,9 +12,9 @@ import userRouter from "./user/user.routes.js";
 import wishListRouter from "./wishList/wishList.routes.js";
 
 export function init(app) {
-  app.use("/", (req, res, next) => {
-    res.send("hello world");
-  });
+  // app.use("/", (req, res, next) => {
+  //   res.send("hello world");
+  // });
   app.use("/api/v1/category", categoreRouter);
   app.use("/api/v1/susbcategory", subCategoreRouter);
   app.use("/api/v1/brands", brandRouter);
@@ -29,9 +29,9 @@ export function init(app) {
   app.all("*", (req, res, next) => {
     next(new AppError(`not found `, 404));
   });
-  app.use((err, req, res, next) => {
-    res
-      .status(err.statusCode)
-      .json({ message: err.message, statusCode: err.statusCode });
-  });
+  // app.use((err, req, res, next) => {
+  //   res
+  //     .status(err.statusCode)
+  //     .json({ message: err.message, statusCode: err.statusCode });
+  // });
 }

@@ -8,7 +8,8 @@ import ApiFeature from "../../utils/apiFeature.js";
 const addProduct = catchAsync(async (req, res, next) => {
   req.body.slug = slugify(req.body.title);
   req.body.imgCover = req.files.imgCover[0].filename;
-  req.body.imgCovers = req.files.imgCovers.map((file) => file.filename);
+  console.log(req.files, "req.files");
+  req.body.images = req.files.images && req.files.images.map((file) => file.filename);
   console.log(req.files, "req.files");
 
   let results = new productModel(req.body);

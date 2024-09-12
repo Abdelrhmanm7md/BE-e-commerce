@@ -13,12 +13,7 @@ const addbrands = catchAsync(async (req, res, next) => {
   res.status(201).json({ message: "added", added });
 });
 const getAllbrands = catchAsync(async (req, res, next) => {
-  let ApiFeat = new ApiFeature(brandModel.find(), req.query)
-    .pagination()
-    .filter()
-    .sort()
-    .search()
-    .fields();
+  let ApiFeat = new brandModel.find()
 
   let results = await ApiFeat.mongooseQuery;
   res.json({ message: "done", page: ApiFeat.page, results });
